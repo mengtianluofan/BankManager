@@ -1,6 +1,7 @@
 package com.dao.impl;
 
 import com.dao.BaseDao;
+import com.dao.UserDao;
 import com.entity.User;
 
 import java.sql.Connection;
@@ -16,26 +17,23 @@ import java.util.List;
  * @description: TODO
  * @date 2023/6/7 10:08
  */
-public class UserDaoImpl extends BaseDao {
+public class UserDaoImpl extends BaseDao implements UserDao {
 
     private Connection conn = null;
     private PreparedStatement pstmt = null;
     private ResultSet rs = null;
 
     public int updateUser(String sql, Object[] param) {
-        int count = executeSQL(sql, param);
-        return count;
+        return executeSQL(sql, param);
     }
 
     public int insertUser(User user) {
-        String sql = "insert into user (id, password) values (?, ?)";
-        String[] param = new String[3];
-        param[0] = user.getId() + "";
-        param[1] = user.getPassword();
-        param[2] = user.getOwnerID() + "";
+        String sql = "insert into user (password, ownerid) values (?, ?)";
+        String[] param = new String[2];
+        param[0] = user.getPassword();
+        param[1] = user.getOwnerID() + "";
 
-        int count = executeSQL(sql, param);
-        return count;
+        return executeSQL(sql, param);
     }
 
     public List<User> getUser(String sql, String[] param) {

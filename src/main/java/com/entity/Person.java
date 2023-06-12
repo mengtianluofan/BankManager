@@ -11,17 +11,15 @@ public class Person {
     private String name;
     private long personID;
     private int gender;
-    private int age;
     private long tel;
 
     public Person() {
     }
 
-    public Person(String name, long personID, int gender, int age, long tel) {
+    public Person(String name, long personID, int gender, long tel) {
         this.name = name;
         this.personID = personID;
         this.gender = gender;
-        this.age = age;
         this.tel = tel;
     }
 
@@ -39,14 +37,6 @@ public class Person {
 
     public void setGender(int gender) {
         this.gender = gender;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public long getPersonID() {

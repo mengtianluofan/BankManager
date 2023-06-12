@@ -1,5 +1,6 @@
 package com.dao.impl;
 
+import com.dao.AccountDao;
 import com.dao.BaseDao;
 import com.entity.Account;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * @description: TODO
  * @date 2023/6/7 10:38
  */
-public class AccountDaoImpl extends BaseDao {
+public class AccountDaoImpl extends BaseDao implements AccountDao {
     private Connection conn = null;
     private PreparedStatement pstmt = null;
     private ResultSet rs = null;
@@ -27,15 +28,14 @@ public class AccountDaoImpl extends BaseDao {
     }
 
     public int insertAccount(Account account) {
-        String sql = "insert into Account (id, password, amount, limit, type, owner, ownerID) values (?, ?, ?, ?, ?, ?)";
-        String[] param = new String[7];
-        param[0] = account.getId() + "";
-        param[1] = account.getPassword();
-        param[2] = account.getAmount() + "";
-        param[3] = account.getLimit() + "";
-        param[4] = account.getAccountType() + "";
-        param[5] = account.getOwnerName();
-        param[6] = account.getOwnerID() + "";
+        String sql = "insert into Account (password, amount, limit, type, owner, ownerID) values (?, ?, ?, ?, ?)";
+        String[] param = new String[6];
+        param[0] = account.getPassword();
+        param[1] = account.getAmount() + "";
+        param[2] = account.getLimit() + "";
+        param[3] = account.getAccountType() + "";
+        param[4] = account.getOwnerName();
+        param[5] = account.getOwnerID() + "";
 
         int count = executeSQL(sql, param);
         return count;

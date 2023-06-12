@@ -1,6 +1,7 @@
 package com.graph.controller;
 
 import com.graph.HelloApplication;
+import com.graph.UserRegistView;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -29,8 +30,10 @@ public class UserLoginController {
     }
 
     @FXML
-    protected void registerButtonClick() {
-        
+    protected void registerButtonClick() throws IOException {
+        Stage newstage = (Stage) accountText.getScene().getWindow();
+        newstage.hide();
+        new UserRegistView().start(newstage);
     }
 
     @FXML

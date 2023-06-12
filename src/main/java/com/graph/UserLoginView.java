@@ -16,7 +16,7 @@ public class UserLoginView extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user-login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(UserLoginView.class.getResource("user-login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);
         stage.setTitle("用户登录界面");
         stage.setScene(scene);

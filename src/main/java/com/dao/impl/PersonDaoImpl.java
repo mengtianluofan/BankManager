@@ -1,6 +1,7 @@
 package com.dao.impl;
 
 import com.dao.BaseDao;
+import com.dao.PersonDao;
 import com.entity.Person;
 
 import java.sql.*;
@@ -13,7 +14,7 @@ import java.util.List;
  * @description: TODO
  * @date 2023/6/7 09:16
  */
-public class PersonDaoImpl extends BaseDao {
+public class PersonDaoImpl extends BaseDao implements PersonDao  {
 
     private Connection conn = null;
     private PreparedStatement pstmt = null;
@@ -25,14 +26,13 @@ public class PersonDaoImpl extends BaseDao {
     }
 
     public int insertPerson(Person person) {
-        String sql = "insert into person (personid, name, age, gender, tel) " +
-                "values (?, ?, ?, ?, ?)";
-        String[] param = new String[5];
+        String sql = "insert into person (personid, name, gender, tel) " +
+                "values (?, ?, ?, ?)";
+        String[] param = new String[4];
         param[0] = person.getPersonID() + "";
         param[1] = person.getName();
-        param[2] = person.getAge() + "";
-        param[3] = person.getGender() + "";
-        param[4] = person.getTel() + "";
+        param[2] = person.getGender() + "";
+        param[3] = person.getTel() + "";
 
         int count = executeSQL(sql, param);
         return count;
@@ -55,9 +55,8 @@ public class PersonDaoImpl extends BaseDao {
                 person = new Person();
                 person.setPersonID(rs.getLong(1));
                 person.setName(rs.getString(2));
-                person.setAge(rs.getInt(3));
-                person.setGender(rs.getInt(4));
-                person.setTel(rs.getLong(5));
+                person.setGender(rs.getInt(3));
+                person.setTel(rs.getLong(4));
                 personList.add(person);
             }
         } catch (ClassNotFoundException | SQLException e) {

@@ -1,5 +1,6 @@
 package com.dao.impl;
 
+import com.dao.AdminDao;
 import com.dao.BaseDao;
 import com.entity.Admin;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * @description: TODO
  * @date 2023/6/7 10:33
  */
-public class AdminDaoImpl extends BaseDao {
+public class AdminDaoImpl extends BaseDao implements AdminDao {
     private Connection conn = null;
     private PreparedStatement pstmt = null;
     private ResultSet rs = null;
@@ -27,12 +28,11 @@ public class AdminDaoImpl extends BaseDao {
     }
 
     public int insertAdmin(Admin admin) {
-        String sql = "insert into admin (id, password, admintype, ownerid) values (?, ?, ?, ?)";
+        String sql = "insert into admin (password, admintype, ownerid) values (?, ?, ?)";
         String[] param = new String[4];
-        param[0] = admin.getId() + "";
-        param[1] = admin.getPassword();
-        param[2] = admin.getAdminType() + "";
-        param[3] = admin.getOwnerID() + "";
+        param[0] = admin.getPassword();
+        param[1] = admin.getAdminType() + "";
+        param[2] = admin.getOwnerID() + "";
 
         int count = executeSQL(sql, param);
         return count;
