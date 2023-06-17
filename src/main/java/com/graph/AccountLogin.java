@@ -41,7 +41,7 @@ public class AccountLogin {
     protected void returnButtonClick() throws Exception {
         Stage newstage = (Stage) accountText.getScene().getWindow();
         newstage.hide();
-        new UserLoginView().start(newstage);
+        new UserMenuView().start(newstage);
     }
 
     @FXML

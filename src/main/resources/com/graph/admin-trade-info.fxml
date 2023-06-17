@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.graph.AdminTradeInfo">
+    <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="800.0">
+        <Pane prefHeight="65.0" prefWidth="349.0" HBox.hgrow="ALWAYS" />
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="514.0" text="交 易 信 息" HBox.hgrow="ALWAYS">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+            <HBox.margin>
+                <Insets bottom="5.0" top="5.0" />
+            </HBox.margin>
+        </Label>
+        <VBox alignment="BOTTOM_CENTER" prefHeight="65.0" prefWidth="355.0" HBox.hgrow="ALWAYS">
+            <Label fx:id="numLabel" text="总条数：" textFill="RED" VBox.vgrow="ALWAYS">
+                <font>
+                    <Font name="System Italic" size="18.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="5.0" />
+                </VBox.margin>
+            </Label>
+        </VBox>
+    </HBox>
+    <AnchorPane VBox.vgrow="ALWAYS">
+        <TableView fx:id="tableView" prefHeight="400.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn fx:id="numCol" minWidth="70.0" prefWidth="70.0" text="记录" />
+                <TableColumn fx:id="operatCol" minWidth="80.0" prefWidth="80.0" text="操作" />
+                <TableColumn fx:id="amountCol" minWidth="100.0" prefWidth="100.0" text="金额" />
+                <TableColumn fx:id="fromCol" minWidth="150.0" prefWidth="150.0" text="来源" />
+                <TableColumn fx:id="toCol" minWidth="150.0" prefWidth="150.0" text="去向" />
+                <TableColumn fx:id="timeCol" minWidth="200.0" prefWidth="250.0" text="时间" />
+            </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+        </TableView>
+    </AnchorPane>
+</VBox>

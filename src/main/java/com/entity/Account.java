@@ -121,4 +121,8 @@ public class Account {
         }
         return true;
     }
+
+    public String getAccountTypeDesc() {
+        return accountType == 1 ? "储蓄卡" : "信用卡";
+    }
 }

@@ -40,14 +40,14 @@ public class UserLoginView extends Application {
     @FXML
     protected void returnButtonClick() throws IOException {
         Stage newstage = (Stage) accountText.getScene().getWindow();
-        newstage.hide();
+        newstage.close();
         new HelloApplication().start(newstage);
     }
 
     @FXML
     protected void registerButtonClick() throws IOException {
         Stage newstage = (Stage) accountText.getScene().getWindow();
-        newstage.hide();
+        newstage.close();
         new UserRegistView().start(newstage);
     }
 
@@ -80,10 +80,9 @@ public class UserLoginView extends Application {
             alert.showAndWait();
 
             Stage newstage = (Stage) accountText.getScene().getWindow();
-            newstage.hide();
+            newstage.close();
             new UserMenuView(user).start(newstage);
         }
-
     }
 
     @FXML

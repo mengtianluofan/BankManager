@@ -10,16 +10,14 @@ public class Admin {
     private long id;
     private String password;
     private int adminType;
-    private String ownerID;
 
     public Admin() {
     }
 
-    public Admin(long id, String password, int adminType, String ownerID) {
+    public Admin(long id, String password, int adminType) {
         this.id = id;
         this.password = password;
         this.adminType = adminType;
-        this.ownerID = ownerID;
     }
 
     public long getId() {
@@ -44,13 +42,5 @@ public class Admin {
 
     public void setAdminType(int adminType) {
         this.adminType = adminType;
-    }
-
-    public String getOwnerID() {
-        return ownerID;
-    }
-
-    public void setOwnerID(String ownerID) {
-        this.ownerID = ownerID;
     }
 }

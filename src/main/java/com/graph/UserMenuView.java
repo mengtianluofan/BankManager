@@ -20,8 +20,8 @@ import java.io.IOException;
  * @date 2023/6/13 10:06
  */
 public class UserMenuView extends Application {
-
     public static User user;
+    
     @FXML
     private Label topLabel;
     @FXML
@@ -74,6 +74,12 @@ public class UserMenuView extends Application {
     @FXML
     protected void setAccountRegist() throws IOException {
         new AccountRegistView().display();
+    }
+    
+    @FXML
+    protected void setSeeInfoButtonClick() throws IOException {
+        UserInfo userInfo = new UserInfo(user);
+        userInfo.display(new Stage());
     }
 
 }

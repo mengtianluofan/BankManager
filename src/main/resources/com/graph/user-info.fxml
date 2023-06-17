@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="800.0"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.graph.UserInfo">
+    <HBox alignment="CENTER_RIGHT" prefHeight="67.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+        <Label alignment="CENTER" contentDisplay="CENTER" text="用 户 信 息" HBox.hgrow="ALWAYS">
+            <font>
+                <Font name="System Bold" size="36.0"/>
+            </font>
+        </Label>
+        <Pane prefHeight="69.0" prefWidth="154.0"/>
+        <Button fx:id="changeInfoButton" onAction="#setChangeInfoButtonClick" prefHeight="40.0" prefWidth="117.0"
+                text="修改信息">
+            <HBox.margin>
+                <Insets right="20.0"/>
+            </HBox.margin>
+            <font>
+                <Font name="System Bold" size="18.0"/>
+            </font>
+        </Button>
+    </HBox>
+    <GridPane alignment="CENTER" gridLinesVisible="true" prefHeight="378.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="392.0" minWidth="10.0" prefWidth="223.3333282470703"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="576.6666717529297" minWidth="10.0"
+                               prefWidth="576.6666717529297"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.hgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="用户账户">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="账户所有者">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="名下账户">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="性别">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="电话号码">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+            <Label fx:id="userIDLabel" textFill="#00a1ff">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <VBox alignment="TOP_CENTER" prefHeight="76.0" prefWidth="618.0" HBox.hgrow="ALWAYS">
+                <Label fx:id="ownerIDLabel" textFill="#00a1ff">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets top="5.0"/>
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="ownerNameLabel" textFill="#00a1ff">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0"/>
+                    </VBox.margin>
+                </Label>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+              GridPane.rowIndex="2">
+            <Label fx:id="numLable" textFill="#00a1ff">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+            <Button fx:id="viewButton" onAction="#setViewButtonClick" prefHeight="51.0" prefWidth="139.0"
+                    text="查看名下账户" HBox.hgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Button>
+            <Pane prefHeight="76.0" prefWidth="161.0"/>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="genderLabel" textFill="#00a1ff">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label fx:id="telLabel" textFill="#00a1ff">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+    </GridPane>
+</VBox>

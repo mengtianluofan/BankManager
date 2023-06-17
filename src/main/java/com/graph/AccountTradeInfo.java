@@ -28,6 +28,8 @@ import java.util.ResourceBundle;
  * @date 2023/6/16 19:17
  */
 public class AccountTradeInfo implements Initializable {
+    private static Account account;
+
     public TableView<Information> InfoTable;
     public TableColumn<Information, Long> numCol;
     public TableColumn<Information, Long> userCol;
@@ -37,16 +39,12 @@ public class AccountTradeInfo implements Initializable {
     public TableColumn<Information, Date> timeCol;
 
     public TableView<Information> InfoTable1;
-    
-    private static Account account;
     public TableColumn<Information, Long> numCol1;
     public TableColumn<Information, String> fromCol;
     public TableColumn<Information, String> operateCol1;
     public TableColumn<Information, Double> amountCol1;
     public TableColumn<Information, Date> timeCol1;
-
-
-    private ObservableList<Account> data;
+    
     private List<Information> informationList;
 
     public AccountTradeInfo(Account account) {
@@ -59,7 +57,7 @@ public class AccountTradeInfo implements Initializable {
     public void display(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UserRegistView.class.getResource("account-trade-info.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 450);
-        stage.setTitle("账户菜单界面");
+        stage.setTitle("账户交易信息");
         stage.setScene(scene);
         stage.show();
     }
