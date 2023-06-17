@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.graph.controller.UserLoginController">
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.graph.UserLoginView">
     <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="800.0">
         <Pane prefHeight="100.0" prefWidth="39.0"/>
         <Button contentDisplay="CENTER" onAction="#returnButtonClick" prefHeight="47.0" prefWidth="84.0" text="返回"

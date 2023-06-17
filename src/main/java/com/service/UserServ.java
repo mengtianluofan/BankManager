@@ -12,4 +12,6 @@ import com.entity.User;
  */
 public interface UserServ {
     public User Register(User user, Person person);
+    
+    public User Login(String id, String password);
 }

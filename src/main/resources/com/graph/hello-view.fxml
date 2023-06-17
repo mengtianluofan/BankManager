@@ -5,23 +5,25 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
-<VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.graph.controller.HelloController">
+<VBox alignment="TOP_CENTER" prefHeight="450.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.graph.HelloApplication">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
     <Label fx:id="welcomeText" text="银行管理系统">
         <font>
-            <Font size="36.0" />
+            <Font size="36.0"/>
         </font>
     </Label>
     <Button onAction="#onAdminButtonClick" prefHeight="100.0" prefWidth="247.0" text="管理员登录">
-      <font>
-         <Font size="24.0" />
-      </font></Button>
+        <font>
+            <Font size="24.0"/>
+        </font>
+    </Button>
     <Button onAction="#onUserButtonClick" prefHeight="117.0" prefWidth="245.0" text="普通用户登录">
-      <font>
-         <Font size="24.0" />
-      </font></Button>
+        <font>
+            <Font size="24.0"/>
+        </font>
+    </Button>
 </VBox>

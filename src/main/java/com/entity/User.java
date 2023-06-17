@@ -9,12 +9,12 @@ package com.entity;
 public class User {
     private long id;
     private String password;
-    private long ownerID;
+    private String ownerID;
 
     public User() {
     }
 
-    public User(long id, String password, long ownerID) {
+    public User(long id, String password, String ownerID) {
         this.id = id;
         this.password = password;
         this.ownerID = ownerID;
@@ -36,11 +36,11 @@ public class User {
         this.password = password;
     }
 
-    public long getOwnerID() {
+    public String getOwnerID() {
         return ownerID;
     }
 
-    public void setOwnerID(long ownerID) {
+    public void setOwnerID(String ownerID) {
         this.ownerID = ownerID;
     }
 }

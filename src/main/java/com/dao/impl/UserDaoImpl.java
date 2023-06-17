@@ -31,7 +31,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
         String sql = "insert into user (password, ownerid) values (?, ?)";
         String[] param = new String[2];
         param[0] = user.getPassword();
-        param[1] = user.getOwnerID() + "";
+        param[1] = user.getOwnerID();
 
         return executeSQL(sql, param);
     }
@@ -53,7 +53,7 @@ public class UserDaoImpl extends BaseDao implements UserDao {
                 user = new User();
                 user.setId(rs.getLong(1));
                 user.setPassword(rs.getString(2));
-                user.setOwnerID(rs.getLong(3));
+                user.setOwnerID(rs.getString(3));
                 userList.add(user);
             }
         } catch (ClassNotFoundException | SQLException e) {

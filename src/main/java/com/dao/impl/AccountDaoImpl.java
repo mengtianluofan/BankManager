@@ -28,14 +28,14 @@ public class AccountDaoImpl extends BaseDao implements AccountDao {
     }
 
     public int insertAccount(Account account) {
-        String sql = "insert into Account (password, amount, limit, type, owner, ownerID) values (?, ?, ?, ?, ?)";
+        String sql = "insert into account (password, amount, `limit`, type, owner, ownerID) values (?, ?, ?, ?, ?, ?)";
         String[] param = new String[6];
         param[0] = account.getPassword();
         param[1] = account.getAmount() + "";
         param[2] = account.getLimit() + "";
         param[3] = account.getAccountType() + "";
         param[4] = account.getOwnerName();
-        param[5] = account.getOwnerID() + "";
+        param[5] = account.getOwnerID();
 
         int count = executeSQL(sql, param);
         return count;
@@ -62,7 +62,7 @@ public class AccountDaoImpl extends BaseDao implements AccountDao {
                 account.setLimit(rs.getDouble(4));
                 account.setAccountType(rs.getInt(5));
                 account.setOwnerName(rs.getString(6));
-                account.setOwnerID(rs.getLong(7));
+                account.setOwnerID(rs.getString(7));
                 accountList.add(account);
             }
         } catch (ClassNotFoundException | SQLException e) {

@@ -14,13 +14,13 @@ public class Account {
     private double amount;
     private double limit;
     private int accountType;
-    private long ownerID;
+    private String ownerID;
     private String ownerName;
 
     public Account() {
     }
 
-    public Account(long id, String password, double amount, double limit, int accountType, long ownerID, String ownerName) {
+    public Account(long id, String password, double amount, double limit, int accountType, String ownerID, String ownerName) {
         this.id = id;
         this.password = password;
         this.amount = amount;
@@ -30,6 +30,16 @@ public class Account {
         this.ownerName = ownerName;
     }
 
+    public Account(Account oldaccount){
+        id = oldaccount.getId();
+        password = oldaccount.getPassword();
+        amount = oldaccount.getAmount();
+        limit = oldaccount.getLimit();
+        accountType = oldaccount.getAccountType();;
+        ownerID = oldaccount.getOwnerID();;
+        ownerName = oldaccount.getOwnerName();
+    }
+    
     public long getId() {
         return id;
     }
@@ -70,11 +80,11 @@ public class Account {
         this.accountType = accountType;
     }
 
-    public long getOwnerID() {
+    public String getOwnerID() {
         return ownerID;
     }
 
-    public void setOwnerID(long ownerID) {
+    public void setOwnerID(String ownerID) {
         this.ownerID = ownerID;
     }
 
@@ -87,12 +97,13 @@ public class Account {
     }
 
     public boolean withdraw(double money) {
+        if (money < 0) return false;
         if (accountType == 1) {
             if (money <= amount) {
                 amount -= money;
                 return true;
             }
-        } else if (accountType == 2) {
+        } else{
             if (limit - money >= abs(amount)) {
                 amount -= money;
                 return true;
@@ -102,13 +113,12 @@ public class Account {
     }
 
     public boolean saving(double money) {
+        if (money < 0) return false;
         amount += money;
-        if (accountType == 2 && amount > 0) {
-            System.out.println("还款金额超出需要还款额度，请重新存钱！");
+        if (accountType != 1 && amount > 0) {
             amount -= money;
             return false;
         }
         return true;
     }
-
 }

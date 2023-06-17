@@ -32,7 +32,7 @@ public class AdminDaoImpl extends BaseDao implements AdminDao {
         String[] param = new String[4];
         param[0] = admin.getPassword();
         param[1] = admin.getAdminType() + "";
-        param[2] = admin.getOwnerID() + "";
+        param[2] = admin.getOwnerID();
 
         int count = executeSQL(sql, param);
         return count;
@@ -56,7 +56,7 @@ public class AdminDaoImpl extends BaseDao implements AdminDao {
                 admin.setId(rs.getLong(1));
                 admin.setPassword(rs.getString(2));
                 admin.setAdminType(rs.getInt(3));
-                admin.setOwnerID(rs.getLong(4));
+                admin.setOwnerID(rs.getString(4));
                 adminList.add(admin);
             }
         } catch (ClassNotFoundException | SQLException e) {

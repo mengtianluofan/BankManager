@@ -6,6 +6,6 @@ module com.graph.bankmanager {
 
     opens com.graph to javafx.fxml;
     exports com.graph;
-    exports com.graph.controller;
-    opens com.graph.controller to javafx.fxml;
+    opens com.entity;
+    exports com.entity;
 }

@@ -1,9 +1,14 @@
 package com.graph;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
  * @author mengtianluofan
@@ -14,6 +19,11 @@ import javafx.stage.Stage;
  */
 public class AdminLoginView extends Application {
 
+    @FXML
+    private TextField accountText;
+    @FXML
+    private PasswordField passwordField;
+
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(AdminLoginView.class.getResource("admin-login.fxml"));
@@ -22,5 +32,23 @@ public class AdminLoginView extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    
+
+    @FXML
+    protected void returnButtonClick() throws IOException {
+        Stage newstage = (Stage) accountText.getScene().getWindow();
+        newstage.hide();
+        new HelloApplication().start(newstage);
+    }
+
+    @FXML
+    protected void LoginButtonClick() {
+
+    }
+
+    @FXML
+    protected void clearButtonClick() {
+        accountText.setText("");
+        passwordField.setText("");
+    }
+
 }

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<VBox prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.graph.AccountOperateView">
+    <HBox alignment="CENTER_LEFT" prefHeight="85.0" prefWidth="800.0">
+        <Pane prefHeight="47.0" prefWidth="0.0" HBox.hgrow="ALWAYS"/>
+        <Button contentDisplay="CENTER" onAction="#returnButtonClick" prefHeight="47.0" prefWidth="84.0" text="返回"
+                textAlignment="CENTER" HBox.hgrow="ALWAYS"/>
+        <Pane prefHeight="61.0" prefWidth="79.0" HBox.hgrow="ALWAYS"/>
+        <Label fx:id="topLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="231.0"
+               text="银行账户操作" HBox.hgrow="ALWAYS">
+            <font>
+                <Font size="36.0"/>
+            </font>
+        </Label>
+        <Pane prefHeight="61.0" prefWidth="245.0" HBox.hgrow="ALWAYS"/>
+    </HBox>
+    <GridPane prefHeight="414.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.33331298828125" minWidth="10.0"
+                               prefWidth="174.0000203450521"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="634.0000203450521" minWidth="10.0"
+                               prefWidth="626.6666463216146"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+        </rowConstraints>
+        <HBox alignment="CENTER" prefHeight="179.0" prefWidth="187.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="126.0" text="操作类型"
+                   HBox.hgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+              GridPane.vgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="112.0" text="账户密码"
+                   HBox.hgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2"
+              GridPane.vgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="123.0" text="金额"
+                   HBox.hgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+              GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+            <ComboBox fx:id="operateTypeBox" prefHeight="23.0" prefWidth="125.0" promptText="执行操作"
+                      HBox.hgrow="ALWAYS">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="存款/还款"/>
+                        <String fx:value="取款/借款"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Pane prefHeight="98.0" prefWidth="33.0" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="viewButton" alignment="CENTER_RIGHT" onAction="#setViewButton" prefHeight="41.0"
+                    prefWidth="221.0" text="点击查看余额(需还款)：" textFill="#0d00ff" HBox.hgrow="ALWAYS">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Button>
+            <Label fx:id="moneyLable" prefHeight="32.0" prefWidth="247.0" textFill="#00ff1a" HBox.hgrow="ALWAYS">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+              GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+            <PasswordField fx:id="passwordField" prefHeight="23.0" prefWidth="234.0" promptText="请输入密码"
+                           HBox.hgrow="ALWAYS"/>
+            <Label fx:id="passwordLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="356.0"
+                   textFill="RED" HBox.hgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+              GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+            <TextField fx:id="amountTextField" prefHeight="23.0" prefWidth="170.0" promptText="请输入金额"
+                       HBox.hgrow="SOMETIMES"/>
+            <Label fx:id="amountLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="465.0"
+                   textFill="RED" HBox.hgrow="ALWAYS">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+              GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+            <Button fx:id="actionButton" alignment="CENTER" contentDisplay="CENTER" onAction="#setActionButton"
+                     prefHeight="50.0" prefWidth="100.0" text="执行" HBox.hgrow="ALWAYS">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Button>
+            <Pane prefHeight="200.0" prefWidth="200.0"/>
+            <Button alignment="CENTER" contentDisplay="CENTER" onAction="#clearButtonClick" prefHeight="50.0"
+                    prefWidth="100.0" text="重置" HBox.hgrow="ALWAYS">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Button>
+        </HBox>
+    </GridPane>
+</VBox>

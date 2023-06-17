@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.graph.AccountInfo">
+    <HBox alignment="CENTER" prefHeight="67.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+        <Label alignment="CENTER" contentDisplay="CENTER" text="账 户 信 息" HBox.hgrow="ALWAYS">
+            <font>
+                <Font name="System Bold" size="36.0" />
+            </font>
+        </Label>
+      <Label fx:id="LimitLabel" visible="false" />
+    </HBox>
+    <GridPane alignment="CENTER" gridLinesVisible="true" prefHeight="378.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="392.0" minWidth="10.0" prefWidth="223.3333282470703" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="576.6666717529297" minWidth="10.0" prefWidth="576.6666717529297" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.hgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="银行卡号">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="账户类型">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="账户余额">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+            <Label alignment="CENTER" contentDisplay="CENTER" text="账户所有者">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4" />
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+            <Label fx:id="cardID" textFill="#00a1ff">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label text="储  蓄  卡" textFill="#00a1ff">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="amountLable" textFill="#00a1ff">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="ownerNameLabel" textFill="#00a1ff">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label fx:id="ownerIDLabel" textFill="#00a1ff">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+    </GridPane>
+</VBox>

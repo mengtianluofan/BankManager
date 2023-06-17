@@ -1,123 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-
-<VBox prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.graph.controller.UserRegistController">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.graph.UserRegistView">
     <HBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="840.0">
-        <Pane prefHeight="100.0" prefWidth="39.0" />
-        <Button contentDisplay="CENTER" onAction="#returnButtonClick" prefHeight="47.0" prefWidth="84.0" text="返回" textAlignment="CENTER" />
-        <Pane prefHeight="100.0" prefWidth="180.0" />
+        <Pane prefHeight="100.0" prefWidth="39.0"/>
+        <Button contentDisplay="CENTER" onAction="#returnButtonClick" prefHeight="47.0" prefWidth="84.0" text="返回"
+                textAlignment="CENTER"/>
+        <Pane prefHeight="100.0" prefWidth="180.0"/>
         <Label fx:id="topLabel" prefHeight="81.0" prefWidth="228.0" text="用户注册界面">
             <font>
-                <Font size="36.0" />
+                <Font size="36.0"/>
             </font>
         </Label>
     </HBox>
     <ScrollPane prefHeight="541.0" prefWidth="897.0">
         <GridPane alignment="CENTER" prefHeight="531.0" prefWidth="887.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="215.33331298828125" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="639.0" minWidth="10.0" prefWidth="625.3333536783853" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="215.33331298828125"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="639.0" minWidth="10.0" prefWidth="625.3333536783853"/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="62.666690826416016" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="143.0" minHeight="10.0" prefHeight="67.33332316080728" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="182.00003560384113" minHeight="10.0" prefHeight="68.33335876464844" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="294.66661580403644" minHeight="10.0" prefHeight="67.33333333333331" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="254.00000508626306" minHeight="0.0" prefHeight="64.66664632161456" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="254.00000508626306" minHeight="8.333333333333314" prefHeight="65.33333333333331" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="254.00000508626306" minHeight="0.0" prefHeight="65.33333333333331" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="62.666690826416016" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="143.0" minHeight="10.0" prefHeight="67.33332316080728" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="182.00003560384113" minHeight="10.0" prefHeight="68.33335876464844"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="294.66661580403644" minHeight="10.0" prefHeight="67.33333333333331"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="254.00000508626306" minHeight="0.0" prefHeight="64.66664632161456"
+                                vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="254.00000508626306" minHeight="8.333333333333314"
+                                prefHeight="65.33333333333331" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="254.00000508626306" minHeight="0.0" prefHeight="65.33333333333331"
+                                vgrow="SOMETIMES"/>
             </rowConstraints>
             <VBox alignment="CENTER" GridPane.rowIndex="3">
                 <Label alignment="CENTER" contentDisplay="CENTER" text="姓名" textAlignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="18.0"/>
                     </font>
                 </Label>
             </VBox>
             <VBox alignment="CENTER" GridPane.rowIndex="1">
                 <Label alignment="CENTER" text="密码" textAlignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="18.0"/>
                     </font>
                 </Label>
             </VBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                <Button alignment="CENTER" contentDisplay="CENTER" onAction="#oldRegisterButtonClick" prefHeight="40.0" prefWidth="89.0" text="注册" />
-                <Pane prefHeight="97.0" prefWidth="184.0" />
-                <Button alignment="CENTER" contentDisplay="CENTER" onAction="#clearButtonClick" prefHeight="40.0" prefWidth="85.0" text="重置" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                  GridPane.rowIndex="6">
+                <Button alignment="CENTER" contentDisplay="CENTER" onAction="#RegisterButtonClick" prefHeight="40.0"
+                        prefWidth="89.0" text="注册"/>
+                <Pane prefHeight="97.0" prefWidth="184.0"/>
+                <Button alignment="CENTER" contentDisplay="CENTER" onAction="#clearButtonClick" prefHeight="40.0"
+                        prefWidth="85.0" text="重置"/>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                <PasswordField fx:id="passwordField" prefHeight="23.0" prefWidth="683.0" promptText="请输入密码" />
-                <Pane prefHeight="139.0" prefWidth="352.0" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                  GridPane.rowIndex="1">
+                <PasswordField fx:id="passwordField" prefHeight="23.0" prefWidth="683.0" promptText="请输入密码"/>
+                <Pane prefHeight="139.0" prefWidth="352.0"/>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
-                <TextField fx:id="accountText" prefHeight="23.0" prefWidth="784.0" promptText="请输入身份证号" />
-                <Pane prefHeight="132.0" prefWidth="454.0" />
+                <TextField fx:id="accountText" prefHeight="23.0" prefWidth="784.0" promptText="请输入身份证号"/>
+                <Pane prefHeight="132.0" prefWidth="454.0"/>
             </HBox>
             <VBox alignment="CENTER" GridPane.rowIndex="2">
                 <Label alignment="CENTER" text="密码" textAlignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="18.0"/>
                     </font>
                 </Label>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                <PasswordField fx:id="twicePasswordField" prefHeight="23.0" prefWidth="528.0" promptText="请确认密码" />
-                <Pane prefHeight="63.0" prefWidth="195.0" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                  GridPane.rowIndex="2">
+                <PasswordField fx:id="twicePasswordField" prefHeight="23.0" prefWidth="528.0" promptText="请确认密码"/>
+                <Pane prefHeight="63.0" prefWidth="195.0"/>
             </HBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="6" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="6"/>
             <VBox alignment="CENTER">
                 <Label alignment="CENTER" contentDisplay="CENTER" text="身份证号" textAlignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="18.0"/>
                     </font>
                 </Label>
             </VBox>
             <VBox alignment="CENTER" GridPane.rowIndex="4">
                 <Label alignment="CENTER" contentDisplay="CENTER" text="性别" textAlignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="18.0"/>
                     </font>
                 </Label>
             </VBox>
             <VBox alignment="CENTER" GridPane.rowIndex="5">
                 <Label alignment="CENTER" contentDisplay="CENTER" text="电话号码" textAlignment="CENTER">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="18.0"/>
                     </font>
                 </Label>
             </VBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                <TextField fx:id="nameText" prefHeight="23.0" prefWidth="784.0" promptText="请输入姓名" />
-                <Pane prefHeight="132.0" prefWidth="454.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                  GridPane.rowIndex="3">
+                <TextField fx:id="nameText" prefHeight="23.0" prefWidth="784.0" promptText="请输入姓名"/>
+                <Pane prefHeight="132.0" prefWidth="454.0"/>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                <Pane prefHeight="75.0" prefWidth="72.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                  GridPane.rowIndex="4">
+                <Pane prefHeight="75.0" prefWidth="72.0"/>
                 <RadioButton fx:id="manSex" mnemonicParsing="false" selected="true" text="男">
                     <toggleGroup>
-                        <ToggleGroup fx:id="sex" />
+                        <ToggleGroup fx:id="sex"/>
                     </toggleGroup>
                 </RadioButton>
-                <Pane prefHeight="75.0" prefWidth="244.0" />
-                <RadioButton fx:id="womanSex" mnemonicParsing="false" text="女" toggleGroup="$sex" />
+                <Pane prefHeight="75.0" prefWidth="244.0"/>
+                <RadioButton fx:id="womanSex" mnemonicParsing="false" text="女" toggleGroup="$sex"/>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                <TextField fx:id="telText" prefHeight="23.0" prefWidth="784.0" promptText="请输入电话号码" />
-                <Pane prefHeight="132.0" prefWidth="454.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                  GridPane.rowIndex="5">
+                <TextField fx:id="telText" prefHeight="23.0" prefWidth="784.0" promptText="请输入电话号码"/>
+                <Pane prefHeight="132.0" prefWidth="454.0"/>
             </HBox>
         </GridPane>
     </ScrollPane>

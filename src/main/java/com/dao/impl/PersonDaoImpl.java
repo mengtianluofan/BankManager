@@ -29,12 +29,13 @@ public class PersonDaoImpl extends BaseDao implements PersonDao  {
         String sql = "insert into person (personid, name, gender, tel) " +
                 "values (?, ?, ?, ?)";
         String[] param = new String[4];
-        param[0] = person.getPersonID() + "";
+        param[0] = person.getPersonID();
         param[1] = person.getName();
         param[2] = person.getGender() + "";
         param[3] = person.getTel() + "";
 
-        int count = executeSQL(sql, param);
+        int count;
+        count = executeSQL(sql, param);
         return count;
     }
 
@@ -53,7 +54,7 @@ public class PersonDaoImpl extends BaseDao implements PersonDao  {
             Person person = null;
             while (rs.next()) {
                 person = new Person();
-                person.setPersonID(rs.getLong(1));
+                person.setPersonID(rs.getString(1));
                 person.setName(rs.getString(2));
                 person.setGender(rs.getInt(3));
                 person.setTel(rs.getLong(4));

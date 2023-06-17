@@ -9,14 +9,14 @@ package com.entity;
 
 public class Person {
     private String name;
-    private long personID;
+    private String personID;
     private int gender;
     private long tel;
 
     public Person() {
     }
 
-    public Person(String name, long personID, int gender, long tel) {
+    public Person(String name, String personID, int gender, long tel) {
         this.name = name;
         this.personID = personID;
         this.gender = gender;
@@ -39,11 +39,11 @@ public class Person {
         this.gender = gender;
     }
 
-    public long getPersonID() {
+    public String getPersonID() {
         return personID;
     }
 
-    public void setPersonID(long personID) {
+    public void setPersonID(String personID) {
         this.personID = personID;
     }
 
