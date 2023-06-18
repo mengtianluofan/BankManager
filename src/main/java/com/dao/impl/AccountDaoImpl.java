@@ -26,6 +26,12 @@ public class AccountDaoImpl extends BaseDao implements AccountDao {
         int count = executeSQL(sql, param);
         return count;
     }
+    
+    public int updateAccountAmount(Account account){
+        String sql = "update account set amount = ? where id = ?";
+        String[] param = {String.valueOf(account.getAmount()), String.valueOf(account.getId())};
+        return executeSQL(sql, param);
+    }
 
     public int insertAccount(Account account) {
         String sql = "insert into account (password, amount, `limit`, type, owner, ownerID) values (?, ?, ?, ?, ?, ?)";

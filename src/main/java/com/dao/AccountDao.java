@@ -17,4 +17,6 @@ public interface AccountDao {
     public int insertAccount(Account account);
 
     public List<Account> getAccount(String sql, String[] param);
+    
+    public int updateAccountAmount(Account account);
 }

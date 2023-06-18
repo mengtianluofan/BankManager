@@ -110,8 +110,9 @@ public class AccountMenu {
         new AccountInfo(account).start(newstage);
     }
     
-    public void setTransfer(){
-        
+    public void setTransfer() throws IOException {
+        Stage newstage = new Stage();
+        new TransferView(account).start(newstage);
     }
     
     public void setHistroy() throws IOException {

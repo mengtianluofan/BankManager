@@ -1,6 +1,8 @@
 package com.graph;
 
+import com.dao.AccountDao;
 import com.dao.InfoDao;
+import com.dao.impl.AccountDaoImpl;
 import com.dao.impl.InfoDaoImpl;
 import com.entity.Account;
 import com.entity.Information;
@@ -13,15 +15,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -32,6 +32,7 @@ import java.util.ResourceBundle;
  * @date 2023/6/17 21:58
  */
 public class AdminTradeInfo implements Initializable {
+    public TextField searchText;
     @FXML
     protected Label numLabel;
     @FXML
@@ -49,7 +50,7 @@ public class AdminTradeInfo implements Initializable {
     @FXML
     protected TableColumn<Information, String> timeCol;
     
-    private ObservableList<Information> accountObservableList = FXCollections.observableArrayList();
+    private ObservableList<Information> informationObservableList = FXCollections.observableArrayList();
 
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UserRegistView.class.getResource("admin-trade-info.fxml"));
@@ -68,7 +69,7 @@ public class AdminTradeInfo implements Initializable {
             }
         });
         
-        tableView.setItems(accountObservableList);
+        tableView.setItems(informationObservableList);
         numCol.setCellValueFactory(cell -> new SimpleLongProperty(cell.getValue().getId()));
         operatCol.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getOperate()));
         amountCol.setCellValueFactory(cell -> new SimpleDoubleProperty(cell.getValue().getAmount()));
@@ -76,10 +77,62 @@ public class AdminTradeInfo implements Initializable {
         toCol.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getToaccount()));
         timeCol.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().setDateAsString()));
         
+        viewAll();
+    }
+
+    @FXML
+    protected void setSearchButtonClick() {
+        String id = searchText.getText().trim();
+        if (id.isEmpty()) {
+            informationObservableList.clear();
+            numLabel.setText("总条数：" + 0);
+            return;
+        }
+        String sql;
+        String[] param;
+        InfoDao infoDao = new InfoDaoImpl();
+        List<Information> informationList = new ArrayList<>();
+
+        if (id.length() == 18) {
+            sql = "select * from account where ownerID = ?";
+            param = new String[]{id};
+            
+            AccountDao accountDao = new AccountDaoImpl();
+            List<Account> accountList = accountDao.getAccount(sql, param);
+            if(accountList.size() == 0){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "未查询到相关信息！");
+                alert.showAndWait();
+                return;
+            }
+            for(Account account : accountList){
+                String sql1 = "select * from information where fromaccount = ? or toaccount = ?";
+                String[] param1 = {String.valueOf(account.getId()), String.valueOf(account.getId())};
+                informationList.addAll(infoDao.getInfo(sql1, param1));
+            }
+        } else {
+            sql = "select * from information where fromaccount = ? or toaccount = ?";
+            param = new String[]{id, id};
+            informationList = infoDao.getInfo(sql, param);
+        }
+        if (informationList.size() == 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "未查询到相关信息！");
+            alert.showAndWait();
+            return;
+        }
+
+        informationObservableList.clear();
+        informationObservableList.addAll(informationList);
+        numLabel.setText("总条数：" + informationObservableList.size());
+    }
+    
+    @FXML
+    protected void viewAll(){
+        informationObservableList.clear();
+        
         String sql = "select * from information";
         String[] param = {};
         InfoDao infoDao = new InfoDaoImpl();
-        accountObservableList.addAll(infoDao.getInfo(sql, param));
-        numLabel.setText(numLabel.getText() + accountObservableList.size());
+        informationObservableList.addAll(infoDao.getInfo(sql, param));
+        numLabel.setText("总条数：" + informationObservableList.size());
     }
 }

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.String?>
+<?import java.lang.Double?>
+<AnchorPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.graph.AdminAddAccount">
+    <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" spacing="10" AnchorPane.bottomAnchor="0.0"
+          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Label text="添加账户" VBox.vgrow="ALWAYS">
+            <font>
+                <Font name="System Bold" size="36.0"/>
+            </font>
+        </Label>
+        <GridPane prefHeight="336.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="695.0" minWidth="10.0" prefWidth="209.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="625.0" minWidth="10.0" prefWidth="591.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="800.0" GridPane.vgrow="ALWAYS">
+                <Label alignment="CENTER" contentDisplay="CENTER" text="账户类型：" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets right="20.0"/>
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1"
+                  GridPane.vgrow="ALWAYS">
+                <Label alignment="CENTER" contentDisplay="CENTER" text="账户限额：" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets right="20.0"/>
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="134.0" prefWidth="700.0" GridPane.rowIndex="2"
+                  GridPane.vgrow="ALWAYS">
+                <Label text="Owner ID: " HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets right="20.0"/>
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <Label text="信用卡" textFill="BLUE" GridPane.columnIndex="1">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+            <ComboBox fx:id="LimitBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <Double fx:value="2000"/>
+                        <Double fx:value="5000"/>
+                        <Double fx:value="10000"/>
+                        <Double fx:value="100000"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <TextField fx:id="owneridTextField" prefHeight="23.0" prefWidth="327.0" GridPane.columnIndex="1"
+                       GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets right="300.0"/>
+                </GridPane.margin>
+            </TextField>
+        </GridPane>
+        <HBox alignment="CENTER" prefHeight="70.0" prefWidth="800.0">
+            <Button fx:id="confirmButton" onAction="#confirm2" prefHeight="43.0" prefWidth="107.0" text="确 认"
+                    HBox.hgrow="ALWAYS">
+                <HBox.margin>
+                    <Insets bottom="20.0" top="20.0"/>
+                </HBox.margin>
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Button>
+        </HBox>
+    </VBox>
+</AnchorPane>

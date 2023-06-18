@@ -50,8 +50,8 @@ public class AdminLoginView extends Application {
 
     @FXML
     protected void LoginButtonClick() throws IOException {
-        String accountID = accountText.getText();
-        String password1 = passwordField.getText();
+        String accountID = accountText.getText().trim();
+        String password1 = passwordField.getText().trim();
 
         if (accountID.equals("") || password1.equals("")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

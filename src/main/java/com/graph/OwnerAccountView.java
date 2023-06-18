@@ -68,6 +68,20 @@ public class OwnerAccountView implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        infoTabel1.widthProperty().addListener((obs, oldVal, newVal) -> {
+            double width = (double) newVal / infoTabel1.getColumns().size();
+            for (TableColumn column : infoTabel1.getColumns()) {
+                column.setPrefWidth(width);
+            }
+        });
+
+        infoTabel2.widthProperty().addListener((obs, oldVal, newVal) -> {
+            double width = (double) newVal / infoTabel2.getColumns().size();
+            for (TableColumn column : infoTabel2.getColumns()) {
+                column.setPrefWidth(width);
+            }
+        });
+        
         accountID1.setCellValueFactory(cellData -> new SimpleLongProperty(cellData.getValue().getId()));
         accountID2.setCellValueFactory(cellData -> new SimpleLongProperty(cellData.getValue().getId()));
         accountType1.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAccountTypeDesc()));

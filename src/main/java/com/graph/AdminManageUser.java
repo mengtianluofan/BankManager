@@ -1,6 +1,7 @@
 package com.graph;
 
 import com.dao.PersonDao;
+import com.dao.UserDao;
 import com.dao.impl.PersonDaoImpl;
 import com.dao.impl.UserDaoImpl;
 import com.entity.Person;
@@ -32,6 +33,7 @@ import java.util.ResourceBundle;
  * @date 2023/6/18 00:32
  */
 public class AdminManageUser implements Initializable {
+    public TextField searchText;
     @FXML
     protected Button deleteButton;
     @FXML
@@ -77,13 +79,7 @@ public class AdminManageUser implements Initializable {
         genderCol.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().genderToString()));
         telCol.setCellValueFactory(cell -> new SimpleLongProperty(cell.getValue().getTel()));
 
-        String sql = "select * from user";
-        String[] param = {};
-        List<User> userList = new UserDaoImpl().getUser(sql, param);
-        for (User user : userList) {
-            userAndPeople.add(new UserAndPerson(user));
-        }
-        numLabel.setText("用户数： " + userList.size());
+        viewAll();
     }
 
     @FXML
@@ -102,11 +98,11 @@ public class AdminManageUser implements Initializable {
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 AdminServ adminServ = new AdminServImpl();
                 Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION, "是否删除其名下账户?");
-                Optional<ButtonType> result1 = alert.showAndWait();
+                Optional<ButtonType> result1 = alert1.showAndWait();
                 if (result1.isPresent() && result1.get() == ButtonType.OK) {
                     adminServ.deleteAccountByOwnerID(selectedUser.getOwnerid());
                 }
-                
+
                 if (adminServ.deleteUser(selectedUser.getId())) {
                     userAndPeople.remove(selectedUser);
                     numLabel.setText("用户数： " + userAndPeople.size());
@@ -118,15 +114,95 @@ public class AdminManageUser implements Initializable {
                     Alert errorAlert = new Alert(Alert.AlertType.ERROR, "删除失败，请稍后再试!");
                     errorAlert.showAndWait();
                 }
-                
+
             }
         }
     }
 
     @FXML
     //添加用户
-    protected void setAddButtonClick() {
+    protected void setAddButtonClick() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "是否添加新身份信息？");
+        Optional<ButtonType> result1 = alert.showAndWait();
+        if (result1.isPresent() && result1.get() == ButtonType.OK) {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(AddUserDialog.class.getResource("add-user-dialog1.fxml"));
+            Scene scene = new Scene(loader.load(), 800, 450);
+            stage.setScene(scene);
+            stage.setTitle("添加用户");
+            stage.showAndWait();
+            UserAndPerson newUser = loader.<AddUserDialog>getController().getNewUser();
+            if (newUser != null) {
+                userAndPeople.add(newUser);
+                numLabel.setText("用户数： " + userAndPeople.size());
+            } else {
+                // 如果添加失败，则弹出错误提示
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR, "添加失败，请稍后再试!");
+                errorAlert.showAndWait();
+            }
+        } else {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(AddUserDialog.class.getResource("add-user-dialog2.fxml"));
+            Scene scene = new Scene(loader.load(), 800, 450);
+            stage.setScene(scene);
+            stage.setTitle("添加用户");
+            stage.showAndWait();
+            UserAndPerson newUser = loader.<AddUserDialog>getController().getNewUser();
+            if (newUser != null) {
+                userAndPeople.add(newUser);
+                numLabel.setText("用户数： " + userAndPeople.size());
+            } else {
+                // 如果添加失败，则弹出错误提示
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR, "添加失败，请稍后再试!");
+                errorAlert.showAndWait();
+            }
+        }
+    }
 
+    @FXML
+    protected void setSearchButtonClick() {
+        String id = searchText.getText().trim();
+        if (id.isEmpty()) {
+            userAndPeople.clear();
+            numLabel.setText("用户数： " + 0);
+            return;
+        }
+        String sql = "select * from user where ";
+        String[] param = {id};
+        UserDao userDao = new UserDaoImpl();
+        List<User> userList;
+
+        if (id.length() == 18) {
+            sql += "ownerID = ?";
+        } else {
+            sql += "id = ?";
+        }
+        userList = userDao.getUser(sql, param);
+        if (userList.size() == 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "未查询到相关信息！");
+            alert.showAndWait();
+            return;
+        }
+
+        userAndPeople.clear();
+        for (User user : userList) {
+            userAndPeople.add(new UserAndPerson(user));
+        }
+        numLabel.setText("用户数： " + userAndPeople.size());
+
+    }
+
+    @FXML
+    protected void viewAll() {
+        userAndPeople.clear();
+
+        String sql = "select * from user";
+        String[] param = {};
+        List<User> userList = new UserDaoImpl().getUser(sql, param);
+        for (User user : userList) {
+            userAndPeople.add(new UserAndPerson(user));
+        }
+        numLabel.setText("用户数： " + userAndPeople.size());
     }
 }
 

@@ -62,8 +62,9 @@ public class AdminMenuView {
     }
     
     @FXML
-    protected void setAccountManage(){
-        
+    protected void setAccountManage() throws IOException {
+        Stage stage = new Stage();
+        new AdminManageAccount().start(stage);
     }
     
     @FXML

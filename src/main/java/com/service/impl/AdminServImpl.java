@@ -58,4 +58,5 @@ public class AdminServImpl implements AdminServ {
         AccountDao accountDao = new AccountDaoImpl();
         return accountDao.updateAccount(sql, param) > 0;
     }
+    
 }

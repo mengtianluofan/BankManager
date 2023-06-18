@@ -53,8 +53,8 @@ public class AccountRegistView {
     protected void setRegistButton() {
         String accountType = accountTypeBox.getValue();
         int type = judgeType(accountType);
-        String password1 = passwordField.getText();
-        String password2 = twicePasswordField.getText();
+        String password1 = passwordField.getText().trim();
+        String password2 = twicePasswordField.getText().trim();
 
         if (type == -1 || Objects.equals(password1, "") || Objects.equals(password2, "")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

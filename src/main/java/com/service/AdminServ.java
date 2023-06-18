@@ -21,4 +21,5 @@ public interface AdminServ {
     public boolean deleteAccountByID(long id);
     
     public boolean deleteAccountByOwnerID(String ownerID);
+    
 }
