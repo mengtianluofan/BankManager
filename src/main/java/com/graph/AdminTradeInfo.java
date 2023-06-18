@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 /**
@@ -33,6 +34,9 @@ import java.util.ResourceBundle;
  */
 public class AdminTradeInfo implements Initializable {
     public TextField searchText;
+    public Label inLabel;
+    public Label outLabel;
+    public Label changeLabel;
     @FXML
     protected Label numLabel;
     @FXML
@@ -122,7 +126,7 @@ public class AdminTradeInfo implements Initializable {
 
         informationObservableList.clear();
         informationObservableList.addAll(informationList);
-        numLabel.setText("总条数：" + informationObservableList.size());
+        setLabe();
     }
     
     @FXML
@@ -133,6 +137,20 @@ public class AdminTradeInfo implements Initializable {
         String[] param = {};
         InfoDao infoDao = new InfoDaoImpl();
         informationObservableList.addAll(infoDao.getInfo(sql, param));
+        setLabe();
+    }
+    
+    private void setLabe(){
+        int in = 0, out = 0, trans = 0;
+        for(Information information : informationObservableList){
+            if(Objects.equals(information.getOperate(), "存款") || Objects.equals(information.getOperate(), "还款")) in++;
+            else if(Objects.equals(information.getOperate(), "取款") || Objects.equals(information.getOperate(), "借款")) out++;
+            else if(Objects.equals(information.getOperate(), "转账")) trans++;
+        }
+        
         numLabel.setText("总条数：" + informationObservableList.size());
+        inLabel.setText("存/还款：" + in);
+        outLabel.setText("取/借款：" + out);
+        changeLabel.setText("转账：" + trans);
     }
 }

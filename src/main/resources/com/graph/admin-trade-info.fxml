@@ -26,25 +26,49 @@
     <HBox alignment="CENTER_LEFT" prefHeight="19.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
         <TextField fx:id="searchText" prefHeight="23.0" prefWidth="139.0" promptText="输入账户或身份证号">
            <HBox.margin>
-               <Insets left="5.0" right="5.0"/>
+               <Insets left="5.0" right="5.0" />
            </HBox.margin>
         </TextField>
         <Button fx:id="searchButton" onAction="#setSearchButtonClick" prefHeight="23.0" prefWidth="63.0" text="查找">
            <HBox.margin>
-               <Insets right="5.0"/>
+               <Insets right="5.0" />
            </HBox.margin>
         </Button>
         <Button fx:id="allButton" onAction="#viewAll" prefHeight="23.0" prefWidth="92.0" text="显示所有账户">
            <HBox.margin>
-               <Insets left="5.0" right="5.0"/>
+               <Insets left="5.0" right="5.0" />
            </HBox.margin>
         </Button>
-        <Pane prefHeight="24.0" prefWidth="211.0" HBox.hgrow="ALWAYS"/>
-        <Label fx:id="numLabel" prefHeight="24.0" prefWidth="209.0" text="总条数：" textFill="RED" HBox.hgrow="ALWAYS">
+        <Pane prefHeight="24.0" prefWidth="56.0" HBox.hgrow="ALWAYS" />
+        <Label fx:id="numLabel" prefHeight="24.0" prefWidth="100.0" text="总条数：" textFill="RED" HBox.hgrow="ALWAYS">
             <font>
-                <Font name="System Italic" size="18.0"/>
+                <Font name="System Italic" size="18.0" />
             </font>
+         <HBox.margin>
+            <Insets right="5.0" />
+         </HBox.margin>
         </Label>
+      <Label fx:id="inLabel" prefHeight="24.0" prefWidth="100.0" text="存/还款：" textFill="LIME" HBox.hgrow="ALWAYS">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <HBox.margin>
+            <Insets right="5.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="outLabel" prefHeight="24.0" prefWidth="100.0" text="取/借款：" textFill="BLUE" HBox.hgrow="ALWAYS">
+         <HBox.margin>
+            <Insets right="5.0" />
+         </HBox.margin>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="changeLabel" prefHeight="24.0" prefWidth="100.0" text="转账：" textFill="MAGENTA" HBox.hgrow="ALWAYS">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
     </HBox>
     <AnchorPane VBox.vgrow="ALWAYS">
         <TableView fx:id="tableView" prefHeight="400.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
