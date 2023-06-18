@@ -25,9 +25,17 @@ import java.io.IOException;
  * @date 2023/6/14 18:37
  */
 public class AccountLogin {
-
+    static User user;
+    
     public PasswordField passwordField;
     public TextField accountText;
+
+    public AccountLogin(User user) {
+        AccountLogin.user = user;
+    }
+
+    public AccountLogin() {
+    }
 
     public void display(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(UserLoginView.class.getResource("account-login.fxml"));
@@ -72,8 +80,16 @@ public class AccountLogin {
             alert.setTitle("登录失败！");
             alert.setContentText("账号或密码错误！！！");
             alert.showAndWait();
+            return;
         }
         else{
+            if(!account.getOwnerID().equals(user.getOwnerID())){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("登录失败！");
+                alert.setContentText("只允许登录本用户名下的账户！");
+                alert.showAndWait();
+                return;
+            }
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("登录成功");
             alert.setContentText("登录成功！！！");
