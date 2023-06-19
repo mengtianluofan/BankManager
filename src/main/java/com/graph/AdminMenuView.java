@@ -45,7 +45,7 @@ public class AdminMenuView {
     protected void returnButtonClick() throws Exception {
         Stage newstage = (Stage) topLabel.getScene().getWindow();
         newstage.close();
-        new UserLoginView().start(newstage);
+        new AdminLoginView().start(newstage);
     }
 
 
