@@ -85,7 +85,7 @@ public class AddUserDialog {
     }
     
     @FXML
-    void  confirm2(){
+    void confirm2(){
         String ownerid = owneridTextField.getText().trim();
 
         if (ownerid.isEmpty()) {
