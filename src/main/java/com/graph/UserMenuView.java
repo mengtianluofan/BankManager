@@ -68,7 +68,7 @@ public class UserMenuView extends Application {
     protected void setAccountLogin() throws IOException {
         Stage newstage = (Stage) topLabel.getScene().getWindow();
         newstage.hide();
-        new AccountLogin().display(newstage);
+        new AccountLogin(user).display(newstage);
     }
 
     @FXML

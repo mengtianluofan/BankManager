@@ -73,7 +73,6 @@ public class AccountRegistView {
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("注册成功！！！");
-            alert.setHeaderText(null);
             alert.setContentText("您已成功注册，您的银行账户为：" + nowAccount.getId());
             alert.showAndWait();
 
